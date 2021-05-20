@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="left" fxHide.xs>
+    <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+      <li>
+        <a routerLink="/reel">Reel</a>
+      </li>
+      <li>
+        <a routerLink="/rod">Rod</a>
+      </li>
+      <li>
+        <a routerLink="/combo">Combo</a>
+      </li>
+      <li>
+        <a routerLink="/lure">Lure</a>
+      </li>
+      <li>
+        <a routerLink="/line">Line</a>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>
