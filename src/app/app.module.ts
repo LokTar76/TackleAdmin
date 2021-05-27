@@ -27,6 +27,7 @@ import { AddEditLineComponent } from './line/add-edit-line/add-edit-line.compone
 import { SharedService } from './shared.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ReelModule } from './reel/reel.module';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ReelModule
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]
