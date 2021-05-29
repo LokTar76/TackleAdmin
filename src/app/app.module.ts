@@ -25,6 +25,7 @@ import { AddEditLureComponent } from './lure/add-edit-lure/add-edit-lure.compone
 import { ShowLineComponent } from './line/show-line/show-line.component';
 import { AddEditLineComponent } from './line/add-edit-line/add-edit-line.component';
 import { SharedService } from './shared.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ReelModule } from './reel/reel.module';
@@ -57,7 +58,9 @@ import { ReelModule } from './reel/reel.module';
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
-    ReelModule
+    ReelModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

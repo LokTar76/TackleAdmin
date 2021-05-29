@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReelListComponent } from './reel-list/reel-list.component';
-
+import { ReelRoutingModule } from './reel-routing/reel-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [
-    ReelListComponent
-  ],
+  declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    ReelRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ReelModule { }

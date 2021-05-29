@@ -6,8 +6,9 @@ import { ComboComponent } from './combo/combo.component';
 import { LureComponent } from './lure/lure.component';
 import { LineComponent } from './line/line.component';
 
+
 const routes: Routes = [
-  { path: 'reel', component: ReelComponent},
+  { path: 'reel', component: ReelComponent },
   { path: 'rod', component: RodComponent },
   { path: 'combo', component: ComboComponent },
   { path: 'lure', component: LureComponent },

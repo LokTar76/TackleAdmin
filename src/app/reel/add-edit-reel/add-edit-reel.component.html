@@ -1,1 +1,112 @@
-<p>add-edit-reel works!</p>
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="800px" fxFlex.xs="100%">
+    <form [formGroup]="reelForm" autocomplete="off" novalidate (ngSubmit)="addReel()" fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.brand" placeholder="Brand" formControlName="brand" id="brand">
+          <mat-hint align="end">Required, no more than 30 characters.</mat-hint>
+          <mat-error *ngIf="hasError('brand', 'required')">Brand name is required.</mat-error>
+          <mat-error *ngIf="hasError('brand', 'maxlength')">You have more than 30 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.series" placeholder="Series" formControlName="series" id="series">
+          <mat-hint align="end">Required, no more than 50 characters.</mat-hint>
+          <mat-error *ngIf="hasError('series', 'required')">Series is required.</mat-error>
+          <mat-error *ngIf="hasError('series', 'maxlength')">You have more than 50 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.model" placeholder="Model" formControlName="model" id="model">
+          <mat-hint align="end">Required, no more than 80 characters.</mat-hint>
+          <mat-error *ngIf="hasError('model', 'required')">Model is required.</mat-error>
+          <mat-error *ngIf="hasError('model', 'maxlength')">You have more than 80 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.reelType" placeholder="ReelType" formControlName="reelType" id="reelType">
+          <mat-hint align="end">Required</mat-hint>
+          <mat-error *ngIf="hasError('reelType', 'required')">Reel type is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.price" placeholder="Price" formControlName="price" id="price">
+          <mat-hint align="end">Required, cannot be negative.</mat-hint>
+          <mat-error *ngIf="hasError('price', 'required')">Price is required.</mat-error>
+          <mat-error *ngIf="hasError('price', 'min')">Price cannot be negative.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.dragPower" placeholder="DragPower" formControlName="dragPower" id="dragPower">
+          <mat-hint align="end">No more than 20 characters.</mat-hint>
+          <mat-error *ngIf="hasError('dragPower', 'maxlength')">You have more than 20 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.gearRatio" placeholder="GearRatio" formControlName="gearRatio" id="gearRatio">
+          <mat-hint align="end">No more than 20 characters.</mat-hint>
+          <mat-error *ngIf="hasError('gearRatio', 'maxlength')">You have more than 20 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.bearings" placeholder="Bearings" formControlName="bearings" id="bearings">
+          <mat-hint align="end">No more than 30 characters.</mat-hint>
+          <mat-error *ngIf="hasError('bearings', 'maxlength')">You have more than 30 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.reelWeight" placeholder="ReelWeight" formControlName="reelWeight" id="reelWeight">
+          <mat-hint align="end">No more than 20 characters.</mat-hint>
+          <mat-error *ngIf="hasError('reelWeight', 'maxlength')">You have more than 20 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.retrievePerCrank" placeholder="RetrievePerCrank" formControlName="retrievePerCrank" id="retrievePerCrank">
+          <mat-hint align="end">No more than 20 characters.</mat-hint>
+          <mat-error *ngIf="hasError('retrievePerCrank', 'maxlength')">You have more than 20 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.braidCapacity" placeholder="BraidCapacity" formControlName="braidCapacity" id="braidCapacity">
+          <mat-hint align="end">No more than 40 characters.</mat-hint>
+          <mat-error *ngIf="hasError('braidCapacity', 'maxlength')">You have more than 40 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.monoCapacity" placeholder="MonoCapacity" formControlName="monoCapacity" id="monoCapacity">
+          <mat-hint align="end">No more than 40 characters.</mat-hint>
+          <mat-error *ngIf="hasError('monoCapacity', 'maxlength')">You have more than 40 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.diameterCapacity" placeholder="DiameterCapacity" formControlName="diameterCapacity" id="diameterCapacity">
+          <mat-hint align="end">No more than 40 characters.</mat-hint>
+          <mat-error *ngIf="hasError('diameterCapacity', 'maxlength')">You have more than 40 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.itemTypeForShipping" placeholder="ItemTypeForShipping" formControlName="itemTypeForShipping" id="itemTypeForShipping">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="reel.imagePath" placeholder="ImagePath" formControlName="imagePath" id="imagePath">
+          <mat-hint align="end">No more than 150 characters.</mat-hint>
+          <mat-error *ngIf="hasError('imagePath', 'maxlength')">You have more than 150 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="number" [(ngModel)]="reel.inventory" placeholder="Inventory" formControlName="inventory" id="inventory">
+          <mat-hint align="end">Required, cannot be negative.</mat-hint>
+          <mat-error *ngIf="hasError('inventory', 'required')">Inventory is required.</mat-error>
+          <mat-error *ngIf="hasError('inventory', 'min')">Price cannot be negative.</mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [disabled]="!reelForm.valid" *ngIf="reel.reelId==0">Add</button>
+        <button type="button" mat-raised-button color="warn" (click)="updateReel()" *ngIf="reel.reelId!=0">Update</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</section>
