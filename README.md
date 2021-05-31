@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## About this site
+
+The purpose of this site is to build an administration user interface for adding, editing, searching, and deleting products data of tackle shop website. Database used in this project is Microsoft SQL Server. Web API used in this project is created by using Entity Framework Database First technology, which can be found at https://github.com/LokTar76/TackleShopAdminApi
+
+The following video will show you how this webiste works.
+
+
+https://user-images.githubusercontent.com/38976947/120150602-9809df00-c22e-11eb-955f-420d62055a79.mp4
+
