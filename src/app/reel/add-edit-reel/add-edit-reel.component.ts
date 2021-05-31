@@ -2,7 +2,8 @@ import { Component, OnInit, Input, Inject } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReelData } from '../show-reel/show-reel.component';
-import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 
 
 @Component({
@@ -18,13 +19,12 @@ export class AddEditReelComponent implements OnInit {
   @Input() reel: ReelData;
 
   ngOnInit(): void {
-    debugger;
     this.reel = this.data.reel;
     this.reelForm = new FormGroup({
       brand: new FormControl('', [Validators.required, Validators.maxLength(30)]),
       series: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       model: new FormControl('', [Validators.required, Validators.maxLength(80)]),
-      reelType: new FormControl('', [Validators.required]),
+      reelType: new FormControl('', [Validators.required, Validators.maxLength(30)]),
       price: new FormControl('', [Validators.required, Validators.min(0)]),
       dragPower: new FormControl('', [Validators.maxLength(20)]),
       gearRatio: new FormControl('', [Validators.maxLength(20)]),
@@ -34,7 +34,7 @@ export class AddEditReelComponent implements OnInit {
       braidCapacity: new FormControl('', [Validators.maxLength(40)]),
       monoCapacity: new FormControl('', [Validators.maxLength(40)]),
       diameterCapacity: new FormControl('', [Validators.maxLength(40)]),
-      itemTypeForShipping: new FormControl(''),
+      itemTypeForShipping: new FormControl('', [Validators.maxLength(40)]),
       imagePath: new FormControl('', [Validators.maxLength(150)]),
       inventory: new FormControl('', [Validators.required, Validators.min(0)])
     });
@@ -45,7 +45,7 @@ export class AddEditReelComponent implements OnInit {
   }
 
   addReel() {
-    var newReel = new ReelData();
+    //var newReel = new ReelData();
     this.service.addReel(this.reel).subscribe(res => {
       this.dialogRef.close();
       //alert(JSON.stringify(res));
@@ -58,4 +58,5 @@ export class AddEditReelComponent implements OnInit {
       this.dialogRef.close();
     });
   }
+
 }

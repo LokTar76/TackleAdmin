@@ -1,5 +1,7 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
+
   <mat-card fxFlex="800px" fxFlex.xs="100%">
+    <div mat-dialog-content>
     <form [formGroup]="reelForm" autocomplete="off" novalidate (ngSubmit)="addReel()" fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
       <mat-card-content>
         <mat-form-field>
@@ -98,7 +100,7 @@
           <input matInput type="number" [(ngModel)]="reel.inventory" placeholder="Inventory" formControlName="inventory" id="inventory">
           <mat-hint align="end">Required, cannot be negative.</mat-hint>
           <mat-error *ngIf="hasError('inventory', 'required')">Inventory is required.</mat-error>
-          <mat-error *ngIf="hasError('inventory', 'min')">Price cannot be negative.</mat-error>
+          <mat-error *ngIf="hasError('inventory', 'min')">Inventory cannot be negative.</mat-error>
         </mat-form-field>
 
       </mat-card-content>
@@ -108,5 +110,7 @@
         <button type="button" mat-raised-button color="warn" (click)="updateReel()" *ngIf="reel.reelId!=0">Update</button>
       </mat-card-actions>
     </form>
+  </div>
   </mat-card>
+
 </section>

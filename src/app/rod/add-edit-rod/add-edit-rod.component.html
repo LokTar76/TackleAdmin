@@ -1,1 +1,118 @@
-<p>add-edit-rod works!</p>
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+
+  <mat-card fxFlex="800px" fxFlex.xs="100%">
+    <div mat-dialog-content>
+    <form [formGroup]="rodForm" autocomplete="off" novalidate (ngSubmit)="addRod()" fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.brand" placeholder="Brand" formControlName="brand" id="brand">
+          <mat-hint align="end">Required, no more than 30 characters.</mat-hint>
+          <mat-error *ngIf="hasError('brand', 'required')">Brand name is required.</mat-error>
+          <mat-error *ngIf="hasError('brand', 'maxlength')">You have more than 30 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.series" placeholder="Series" formControlName="series" id="series">
+          <mat-hint align="end">Required, no more than 50 characters.</mat-hint>
+          <mat-error *ngIf="hasError('series', 'required')">Series is required.</mat-error>
+          <mat-error *ngIf="hasError('series', 'maxlength')">You have more than 50 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.model" placeholder="Model" formControlName="model" id="model">
+          <mat-hint align="end">Required, no more than 80 characters.</mat-hint>
+          <mat-error *ngIf="hasError('model', 'required')">Model is required.</mat-error>
+          <mat-error *ngIf="hasError('model', 'maxlength')">You have more than 80 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.rodType" placeholder="Rod Type" formControlName="rodType" id="rodType">
+          <mat-hint align="end">Required</mat-hint>
+          <mat-error *ngIf="hasError('rodType', 'required')">Reel type is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.price" placeholder="Price" formControlName="price" id="price">
+          <mat-hint align="end">Required, cannot be negative.</mat-hint>
+          <mat-error *ngIf="hasError('price', 'required')">Price is required.</mat-error>
+          <mat-error *ngIf="hasError('price', 'min')">Price cannot be negative.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.lineWeight" placeholder="Line Weight" formControlName="lineWeight" id="lineWeight">
+          <mat-hint align="end">No more than 20 characters.</mat-hint>
+          <mat-error *ngIf="hasError('lineWeight', 'maxlength')">You have more than 20 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.perating" placeholder="PE Rating" formControlName="perating" id="perating">
+          <mat-hint align="end">No more than 20 characters.</mat-hint>
+          <mat-error *ngIf="hasError('perating', 'maxlength')">You have more than 20 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.pieces" placeholder="Pieces" formControlName="pieces" id="pieces">
+          <mat-hint align="end">No more than 30 characters.</mat-hint>
+          <mat-error *ngIf="hasError('pieces', 'maxlength')">You have more than 30 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.length" placeholder="Length" formControlName="length" id="length">
+          <mat-hint align="end">No more than 20 characters.</mat-hint>
+          <mat-error *ngIf="hasError('length', 'maxlength')">You have more than 20 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.rodGuides" placeholder="Rod Guides" formControlName="rodGuides" id="rodGuides">
+          <mat-hint align="end">No more than 20 characters.</mat-hint>
+          <mat-error *ngIf="hasError('rodGuides', 'maxlength')">You have more than 20 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.castWeight" placeholder="Cast Weight" formControlName="castWeight" id="castWeight">
+          <mat-hint align="end">No more than 40 characters.</mat-hint>
+          <mat-error *ngIf="hasError('castWeight', 'maxlength')">You have more than 40 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.rodGrips" placeholder="Rod Grips" formControlName="rodGrips" id="rodGrips">
+          <mat-hint align="end">No more than 40 characters.</mat-hint>
+          <mat-error *ngIf="hasError('rodGrips', 'maxlength')">You have more than 40 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.rodButtAssembly" placeholder="Rod Butt Assembly" formControlName="rodButtAssembly" id="rodButtAssembly">
+          <mat-hint align="end">No more than 40 characters.</mat-hint>
+          <mat-error *ngIf="hasError('rodButtAssembly', 'maxlength')">You have more than 40 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="number" [(ngModel)]="rod.inventory" placeholder="Inventory" formControlName="inventory" id="inventory">
+          <mat-hint align="end">Required, cannot be negative.</mat-hint>
+          <mat-error *ngIf="hasError('inventory', 'required')">Inventory is required.</mat-error>
+          <mat-error *ngIf="hasError('inventory', 'min')">Inventory cannot be negative.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.itemTypeForShipping" placeholder="ItemTypeForShipping" formControlName="itemTypeForShipping" id="itemTypeForShipping">
+          <mat-hint align="end">No more than 40 characters.</mat-hint>
+          <mat-error *ngIf="hasError('itemTypeForShipping', 'maxlength')">You have more than 40 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="rod.imagePath" placeholder="Image Path" formControlName="imagePath" id="imagePath">
+          <mat-hint align="end">No more than 150 characters.</mat-hint>
+          <mat-error *ngIf="hasError('imagePath', 'maxlength')">You have more than 150 characters.</mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [disabled]="!rodForm.valid" *ngIf="rod.rodId==0">Add</button>
+        <button type="button" mat-raised-button color="warn" (click)="updateRod()" *ngIf="rod.rodId!=0">Update</button>
+      </mat-card-actions>
+    </form>
+  </div>
+  </mat-card>
+
+</section>
