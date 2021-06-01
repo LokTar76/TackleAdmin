@@ -3,6 +3,7 @@ import { SharedService } from 'src/app/shared.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RodData } from '../show-rod/show-rod.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { EventEmitterService } from 'src/app/event-emitter.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AddEditRodComponent implements OnInit {
 
-  constructor(private service: SharedService, @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<AddEditRodComponent>) { }
+  constructor(private service: SharedService, @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<AddEditRodComponent>, private eventEmitterService: EventEmitterService) { }
 
   public rodForm: FormGroup;
 
@@ -47,6 +48,7 @@ export class AddEditRodComponent implements OnInit {
   addRod() {
     this.service.addRod(this.rod).subscribe(res => {
       this.dialogRef.close();
+      this.refreshRodList();
     });
   }
 
@@ -56,5 +58,7 @@ export class AddEditRodComponent implements OnInit {
     });
   }
 
-
+  refreshRodList() {
+    this.eventEmitterService.onRefreshRodList();
+  }
 }

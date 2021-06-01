@@ -3,6 +3,7 @@ import { SharedService } from 'src/app/shared.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReelData } from '../show-reel/show-reel.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { EventEmitterService } from 'src/app/event-emitter.service';
 
 
 
@@ -14,7 +15,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class AddEditReelComponent implements OnInit {
   public reelForm: FormGroup;
 
-  constructor(private service: SharedService, @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<AddEditReelComponent>) { }
+  constructor(private service: SharedService, @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<AddEditReelComponent>, private eventEmitterService: EventEmitterService) { }
 
   @Input() reel: ReelData;
 
@@ -49,7 +50,9 @@ export class AddEditReelComponent implements OnInit {
     this.service.addReel(this.reel).subscribe(res => {
       this.dialogRef.close();
       //alert(JSON.stringify(res));
+      this.refreshReelList();
     })
+
   }
 
   updateReel() {
@@ -59,4 +62,7 @@ export class AddEditReelComponent implements OnInit {
     });
   }
 
+  refreshReelList() {
+    this.eventEmitterService.onRefreshReelList();
+  }
 }

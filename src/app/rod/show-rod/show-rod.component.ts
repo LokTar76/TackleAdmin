@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEditRodComponent } from '../add-edit-rod/add-edit-rod.component';
+import { EventEmitterService } from 'src/app/event-emitter.service';
 
 export class RodData {
   brand?: string;
@@ -56,7 +57,7 @@ export class ShowRodComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private service: SharedService, public dialog: MatDialog) { }
+  constructor(private service: SharedService, public dialog: MatDialog, private eventEmitterService: EventEmitterService) { }
 
   public displayedColumns = ['brand', 'series', 'model', 'rodType', 'price', 'lineWeight', 'perating', 'pieces', 'length', 'rodGuides', 'castWeight', 'rodGrips', 'rodButtAssembly', 'inventory', 'itemTypeForShipping', 'imagePath', 'rodId','Options'];
   public dataSource = new MatTableDataSource<RodData>();
@@ -64,6 +65,11 @@ export class ShowRodComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.refreshRodList();
+    if (this.eventEmitterService.refreshRod == undefined) {
+      this.eventEmitterService.refreshRod = this.eventEmitterService.invokeRefreshRodList.subscribe(() => {
+        this.refreshRodList();
+      });
+    }
   }
 
   ngAfterViewInit(): void {

@@ -29,6 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ReelModule } from './reel/reel.module';
+import { EventEmitterService } from './event-emitter.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,10 @@ import { ReelModule } from './reel/reel.module';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [SharedService],
+  providers: [
+    SharedService,
+    EventEmitterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

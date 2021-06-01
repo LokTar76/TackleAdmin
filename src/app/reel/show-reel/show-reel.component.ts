@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEditReelComponent } from '../add-edit-reel/add-edit-reel.component';
+import { EventEmitterService } from 'src/app/event-emitter.service';
 
 
 export class ReelData {
@@ -57,7 +58,7 @@ export class ShowReelComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private service: SharedService, public dialog: MatDialog) { }
+  constructor(private service: SharedService, public dialog: MatDialog, private eventEmitterService: EventEmitterService) { }
 
   public displayedColumns = ['brand', 'series', 'model', 'reelType', 'price', 'dragPower', 'gearRatio', 'bearings', 'reelWeight', 'retrievePerCrank', 'braidCapacity', 'monoCapacity', 'diameterCapacity', 'itemTypeForShipping', 'imagePath', 'inventory', 'reelId','Options'];
   public dataSource = new MatTableDataSource<ReelData>();
@@ -65,6 +66,11 @@ export class ShowReelComponent implements OnInit, AfterViewInit {
   reel: ReelData;
   ngOnInit(): void {
     this.refreshReelList();
+    if (this.eventEmitterService.refreshReel == undefined) {
+      this.eventEmitterService.refreshReel = this.eventEmitterService.invokeRefreshReelList.subscribe(() => {
+        this.refreshReelList();
+      });
+    }
   }
 
   addClick() {
