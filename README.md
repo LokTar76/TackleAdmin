@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## About this site
+
+The purpose of this site is to build an administration user interface for adding, editing, searching, and deleting products data of tackle shop website. Database used in this project is Microsoft SQL Server. Web API used in this project is created by using Entity Framework Database First technology, which can be found at https://github.com/LokTar76/TackleShopAdminApi
+
+Data table in this website has some basic filtering and sorting functions. In Add-Edit pop up card there are some validators. When adding an item, the submit button is greyed out until all essential fields have been filled. When deleting an item, there will be a pop up alert ask for confirmation.
+
+The following video will show you how this webiste works.
+
+
+https://user-images.githubusercontent.com/38976947/120150602-9809df00-c22e-11eb-955f-420d62055a79.mp4
+
