@@ -10,8 +10,11 @@ export class EventEmitterService {
 
   invokeRefreshReelList = new EventEmitter();
   invokeRefreshRodList = new EventEmitter();
+  invokeRefreshComboList = new EventEmitter();
+
   refreshReel: Subscription;
   refreshRod: Subscription;
+  refreshCombo: Subscription;
 
   onRefreshReelList() {
     this.invokeRefreshReelList.emit();
@@ -19,5 +22,9 @@ export class EventEmitterService {
 
   onRefreshRodList() {
     this.invokeRefreshRodList.emit();
+  }
+
+  onRefreshComboList() {
+    this.invokeRefreshReelList.emit();
   }
 }

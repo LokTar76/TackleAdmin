@@ -1,1 +1,71 @@
-<p>add-edit-combo works!</p>
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+
+  <mat-card fxFlex="800px" fxFlex.xs="100%">
+    <div mat-dialog-content>
+    <form [formGroup]="comboForm" autocomplete="off" novalidate (ngSubmit)="addCombo()" fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="combo.brand" placeholder="Brand" formControlName="brand" id="brand">
+          <mat-hint align="end">Required, no more than 30 characters.</mat-hint>
+          <mat-error *ngIf="hasError('brand', 'required')">Brand name is required.</mat-error>
+          <mat-error *ngIf="hasError('brand', 'maxlength')">You have more than 30 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="number" [(ngModel)]="combo.price" placeholder="Price" formControlName="price" id="price">
+          <mat-hint align="end">Required, cannot be negative.</mat-hint>
+          <mat-error *ngIf="hasError('price', 'required')">Price is required.</mat-error>
+          <mat-error *ngIf="hasError('price', 'min')">Price cannot be negative.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="combo.type" placeholder="Type" formControlName="type" id="type">
+          <mat-hint align="end">No more than 30 characters.</mat-hint>
+          <mat-error *ngIf="hasError('type', 'required')">Type is required.</mat-error>
+          <mat-error *ngIf="hasError('type', 'maxlength')">You have more than 30 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="number" [(ngModel)]="combo.inventory" placeholder="Inventory" formControlName="inventory" id="inventory">
+          <mat-hint align="end">Required, cannot be negative.</mat-hint>
+          <mat-error *ngIf="hasError('inventory', 'required')">Inventory is required.</mat-error>
+          <mat-error *ngIf="hasError('inventory', 'min')">Inventory cannot be negative.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="combo.itemTypeForShipping" placeholder="ItemTypeForShipping" formControlName="itemTypeForShipping" id="itemTypeForShipping">
+          <mat-hint align="end">No more than 40 characters.</mat-hint>
+          <mat-error *ngIf="hasError('itemTypeForShipping', 'maxlength')">You have more than 40 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="combo.imagePath" placeholder="Image Path" formControlName="imagePath" id="imagePath">
+          <mat-hint align="end">No more than 150 characters.</mat-hint>
+          <mat-error *ngIf="hasError('imagePath', 'maxlength')">You have more than 150 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="combo.reel" placeholder="Reel" formControlName="reel" id="reel">
+          <mat-hint align="end">Required, no more than 80 characters.</mat-hint>
+          <mat-error *ngIf="hasError('reel', 'required')">Reel is required.</mat-error>
+          <mat-error *ngIf="hasError('reel', 'maxlength')">You have more than 80 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="combo.rod" placeholder="Rod" formControlName="rod" id="rod">
+          <mat-hint align="end">Required, no more than 80 characters.</mat-hint>
+          <mat-error *ngIf="hasError('rod', 'required')">Rod is required.</mat-error>
+          <mat-error *ngIf="hasError('rod', 'maxlength')">You have more than 80 characters.</mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [disabled]="!comboForm.valid" *ngIf="combo.comboId==0">Add</button>
+        <button type="button" mat-raised-button color="warn" (click)="updateCombo()" *ngIf="combo.comboId!=0">Update</button>
+      </mat-card-actions>
+    </form>
+  </div>
+  </mat-card>
+
+</section>

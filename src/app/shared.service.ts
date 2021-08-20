@@ -43,4 +43,20 @@ export class SharedService {
   deleteRod(val: any) {
     return this.http.delete(this.APIUrl + '/Rods/' + val);
   }
+
+  getComboList(): Observable<any[]>{
+    return this.http.get<any>(this.APIUrl + '/Comboes');
+  }
+
+  addCombo(val: any) {
+    return this.http.post(this.APIUrl + '/Comboes', val);
+  }
+
+  updateCombo(val: any, id: any) {
+    return this.http.put(this.APIUrl + '/Comboes/' + id, val);
+  }
+
+  deleteCombo(val: any) {
+    return this.http.delete(this.APIUrl + '/Comboes/' + val);
+  }
 }
